@@ -21,12 +21,13 @@ export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async () => {
 // ADD TAsk
 export const addTask = createAsyncThunk('tasks/addTask', async (task, { rejectWithValue }) => {
   try {
-    const response = await axios.post(`${BASE_URL}/api/tasks`, task);
+    const response = await axios.post(BASE_URL, task);
     return response.data;
   } catch (err) {
     return rejectWithValue(err.message);
   }
 });
+
 // UPDATE TASK
 export const updateTask = createAsyncThunk(
   'tasks/updateTask',
@@ -104,7 +105,8 @@ const tasksSlice = createSlice({
       state.filteredItems = state.filteredItems.map(task =>
         task.id === taskId ? { ...task, completed: !task.completed } : task
       );
-    }
+    },
+    
   },
   extraReducers: (builder) => {
     builder
@@ -130,7 +132,17 @@ const tasksSlice = createSlice({
           task.id === updatedTask.id ? { ...task, title: updatedTask.title } : task
         );
       })
-      .addCase(removeTask.fulfilled, (state, action) => {
+     .addCase(addTask.fulfilled, (state, action) => {
+      const newTask = {
+      ...action.payload,
+      // fallback if dueDate is not returned from the server
+      dueDate: action.payload.dueDate || new Date().toISOString().split("T")[0],
+     };
+     state.items.unshift(newTask);
+     state.filteredItems.unshift(newTask);
+     state.error = null;
+    })
+   .addCase(removeTask.fulfilled, (state, action) => {
         const id = action.payload;
         state.items = state.items.filter(task => task.id !== id);
         state.filteredItems = state.filteredItems.filter(task => task.id !== id);

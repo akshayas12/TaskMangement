@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 //validation
 const schema = yup.object().shape({
@@ -79,6 +80,7 @@ return (
         >
           {isSubmitting ? 'Logging in...' : 'Login'}
         </button>
+        <Link to="/register" className="text-blue-600 underline">Don't have an account? Register</Link>
       </form>
     </div>
   );
