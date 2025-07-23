@@ -21,7 +21,7 @@ function Register() {
         }
       );
       localStorage.setItem('token', res.data.token);
-      navigate('/dashboard');
+      navigate('/login');
     } catch (err) {
       setError('Registration failed. Check email and password.');
     }
