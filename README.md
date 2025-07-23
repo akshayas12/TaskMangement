@@ -1,16 +1,90 @@
-<<<<<<< HEAD
-# React + Vite
+# 📝 Task Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and user-friendly Task Management Dashboard built with React.js, providing features such as authentication, task CRUD operations, and filtering/sorting. This project is built using functional components, React Hooks, and validated with React Hook Form + Yup.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [View Live on Vercel](https://your-vercel-link.vercel.app)  
+🔗 [GitHub Repository](https://github.com/your-username/task-management)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# TaskMangement
->>>>>>> ecfc2edf4f96f5b85a53073c091b38cbb2ccb3b5
+## 📋 Features
+
+✅ User Authentication  
+✅ View, Add, Edit, and Delete Tasks  
+✅ Mark Tasks as Completed  
+✅ Filter Tasks (All / Completed / Pending)  
+✅ Sort Tasks by Due Date  
+✅ Responsive UI with Tailwind CSS  
+✅ Form Validation using React Hook Form + Yup  
+✅ JWT-based Authentication  
+✅ Protected Routes & LocalStorage Token Management
+
+---
+
+## 🧪 Task Summary
+
+Build a Task Management Dashboard with:
+
+- **Authentication (JWT):**
+  - Register
+  - Login
+  - Logout
+  - Token stored in `localStorage`
+  - Redirect unauthenticated users
+
+- **Task Features:**
+  - View all tasks
+  - Add new tasks
+  - Edit existing tasks
+  - Delete tasks (with confirmation)
+  - Mark tasks as Completed
+  - Filter and Sort tasks
+
+---
+
+## 🧰 Tech Stack
+
+- React.js (Vite + Functional Components)
+- React Router DOM
+- Redux Toolkit
+- Axios
+- Tailwind CSS
+- React Hook Form + Yup
+- JWT-based Auth
+- GitHub for version control
+- Vercel for deployment
+
+---
+
+## 🔐 APIs Used
+
+### ✅ Authentication (Reqres.in)
+- **Register:** `POST https://reqres.in/api/register`
+- **Login:** `POST https://reqres.in/api/login`
+- **Get User:** `GET https://reqres.in/api/users/2`
+
+### 📋 Tasks (JSONPlaceholder)
+- **Get Tasks:** `GET https://jsonplaceholder.typicode.com/todos`
+- **Get Task by ID:** `GET /todos/{id}`
+- **Add Task:** `POST /todos`
+- **Update Task:** `PUT /todos/{id}`
+- **Delete Task:** `DELETE /todos/{id}`
+
+---
+
+## 🧾 Setup Instructions
+
+```bash
+# Clone repo
+git clone https://github.com/your-username/task-management.git
+
+# Navigate to project
+cd task-management
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
