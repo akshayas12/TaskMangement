@@ -12,7 +12,7 @@ const schema = yup.object().shape({
   password: yup.string().min(4, 'Minimum 4 characters').required('Password is required'),
 });
 
-const Login=()=>{
+const Login = ({ setIsAuthenticated }) => {
     const navigate =useNavigate();
     const{
         register,
@@ -35,6 +35,7 @@ const onSubmit = async (data) => {
       });
       const token= res.data.token;
     localStorage.setItem("token", res.data.token);
+    setIsAuthenticated(true);
     console.log("logined")
     navigate("/dashboard");
     }
